@@ -1,0 +1,83 @@
+PROMPTS PARA GENERAR IMÁGENES FOTOREALISTAS — SunTrack
+
+INSTRUCCIONES GENERALES
+- Formato recomendado de salida: .webp (calidad 80–90) o .png si el generador no soporta webp.
+- Tamaños sugeridos:
+  - Hero product (vertical): 1200 x 1800 px (o 1024 x 1536)
+  - Mini variant (medium): 800 x 1200 px
+  - Avatares: 512 x 512 px
+- Negative prompt (Stable Diffusion): "text, watermark, lowres, deformed, cartoon, sketch, bad anatomy"
+- Evitar usar fotos de personas reales; pedir personas "no reales" o generadas.
+- Para Midjourney añadir flags: --no text --no watermark --ar (aspect)
+
+NOMBRES DE ARCHIVOS RECOMENDADOS (guardar en la carpeta del proyecto):
+- mini_gray.webp
+- mini_white.webp
+- mini_black.webp
+- mini_pink.webp
+- standard_hero.webp
+- pro_hero.webp
+- avatar1.webp
+- avatar2.webp
+- avatar3.webp
+
+--------------------------------------------------------------------------------
+1) SunTrack Mini — gris (mini_gray)
+Prompt (español):
+"Fotografía fotorrealista tipo product shot de un panel solar portátil 'SunTrack Mini' — carcasa gris mate, marco negro, vista 3/4, soporte mínimo, acabado texturizado, logo 'SunTrack' sutil en la base, iluminación de estudio (three-point lighting), fondo degradado oscuro azul, profundidad de campo suave, alto nivel de detalle, materiales realistas, sombras suaves — no texto extra, no watermark"
+Midjourney flags sugeridas: --ar 2:3 --v 5 --q 2 --stylize 50 --no text --no watermark
+Stable Diffusion settings (WebUI): size 1024x1536, steps 30-45, sampler DPM++ 2M Karras, cfg 7.5, negative prompt: see above
+
+--------------------------------------------------------------------------------
+2) SunTrack Mini — blanco (mini_white)
+Prompt: igual que el anterior, reemplazar "carcasa gris" por "carcasa blanco perla, detalles en plateado"
+
+3) SunTrack Mini — negro (mini_black)
+Prompt: igual que el anterior, reemplazar "carcasa gris" por "carcasa negro mate, acentos metálicos oscuros"
+
+4) SunTrack Mini — rosa (mini_pink)
+Prompt: igual que el anterior, reemplazar "carcasa gris" por "carcasa rosa suave (pastel), marco negro, estética elegante"
+
+--------------------------------------------------------------------------------
+5) SunTrack Standard — hero (standard_hero)
+Prompt (español):
+"Render fotorealista estilo hero product shot de SunTrack Standard: panel solar de tamaño mediano con marco metálico azul oscuro, base compacta y texturas realistas, vista 3/4, iluminación de estudio con rim light, fondo neutro oscuro, alta resolución, materiales detallados, sombras naturales — sin logos añadidos ni texto."
+Midjourney flags: --ar 3:4 --v 5 --q 2 --no text --no watermark
+SD settings: size 1536x1024 o 1200x1600, steps 35, cfg 8
+
+--------------------------------------------------------------------------------
+6) SunTrack Pro — hero con soporte (pro_hero)
+Prompt (español):
+"Fotografía fotorrealista de SunTrack Pro sobre soporte robusto, aspecto industrial-profesional, base negra con logo SunTrack amarillo sutil, ángulo 3/4, iluminación tipo estudio (soft key + rim), fondo degradado oscuro azul/verde, materiales metálicos con pequeños reflejos, alta resolución, sensación premium."
+Midjourney flags: --ar 3:4 --v 5 --q 2 --no text --no watermark
+SD settings: steps 30-50, cfg 7-9, size 1200x1600
+
+--------------------------------------------------------------------------------
+7) Avatares fotorealistas (avatar1, avatar2, avatar3)
+Prompt genérico (usar pequeñas variaciones para cada uno):
+"Photorealistic portrait of a non-existent person, friendly smile, studio lighting, natural skin tones, neutral background, head-and-shoulders, age 25-35, casual clothing, high detail, realistic eyes and skin texture, no text, no watermark"
+Variaciones sugeridas:
+- avatar1: female, short brown hair, warm smile
+- avatar2: male, light beard, short hair, friendly
+- avatar3: non-binary, youthful, short haircut, neutral expression
+SD settings: 512x512, steps 30, cfg 7, sampler: Euler a / DPM++
+
+--------------------------------------------------------------------------------
+EJEMPLOS DE PROMPTS EN INGLÉS (útiles para Midjourney o para mejorar resultados):
+- Mini gray (en inglés):
+"Photorealistic studio product shot of a 'SunTrack Mini' portable solar tracker, matte gray housing with black frame, 3/4 angle, subtle 'SunTrack' logo on base, soft three-point lighting, dark gradient background, shallow depth of field, highly detailed, realistic materials, soft shadows --ar 2:3 --v 5 --q 2 --no text --no watermark"
+
+- Pro hero (en inglés):
+"Photorealistic studio render of 'SunTrack Pro' on a sturdy mount, industrial-professional look, matte black base with subtle yellow logo, 3/4 angle, soft key and rim lighting, dark gradient background, high detail, realistic metal textures --ar 3:4 --v 5 --no text --no watermark"
+
+--------------------------------------------------------------------------------
+RECOMENDACIONES PRÁCTICAS
+- Generar 2–3 variantes por prompt y elegir la mejor (especialmente en Midjourney usar Vary/Make Variations y luego Upscale la mejor).
+- Si aparece texto no deseado o watermark: regenerar con "--no text" o usar inpainting para limpiar la zona.
+- Renombrar las imágenes exactamente como arriba (mini_gray.webp, etc.) antes de subirlas al proyecto para que yo las integre automáticamente.
+- Preferible exportar en .webp con calidad 80-90 para web; si el generador no lo permite, usa PNG y subiré/comprimiré yo.
+
+--------------------------------------------------------------------------------
+¿Quieres que además genere un pequeño script (Python) para llamar a la API de OpenAI/Replicate y generar las 6 imágenes automáticamente? Si es así, dime qué servicio prefieres y te lo preparo (no subas claves aquí; te daré instrucciones para ejecutar localmente con tu key).
+
+FIN DEL ARCHIVO
