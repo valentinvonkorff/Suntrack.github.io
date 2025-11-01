@@ -1,9 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Estado global para tracking de selecciones
   const productSelections = {
-    mini: { color: 'gris' },
-    standard: {},
-    pro: {}
+    mini: { color: 'gris', price: 59 },
+    standard: { price: 99 },
+    pro: { price: 159 }
+  };
+
+  // Inicializar selectores de modelo
+  const initModelSelectors = () => {
+    document.querySelectorAll('#modelo').forEach(select => {
+      // Obtener el modelo de la URL si existe
+      const params = new URLSearchParams(window.location.hash.split('?')[1]);
+      const modelFromUrl = params.get('modelo');
+      if (modelFromUrl) {
+        select.value = modelFromUrl;
+      }
+
+      // Mostrar/ocultar opciones de color según el modelo
+      const miniColors = document.getElementById('miniColors');
+      if (miniColors) {
+        const updateColorVisibility = () => {
+          if (select.value === 'mini') {
+            miniColors.style.display = 'block';
+          } else {
+            miniColors.style.display = 'none';
+          }
+        };
+        
+        // Actualizar al cargar y al cambiar
+        updateColorVisibility();
+        select.addEventListener('change', updateColorVisibility);
+      }
+    });
+  };
+
+  // Color swatch functionality para compra
+  const initPurchaseColorSwatches = () => {
+    const miniColors = document.getElementById('miniColors');
+    if (miniColors) {
+      miniColors.querySelectorAll('.color-swatch').forEach(swatch => {
+        swatch.addEventListener('click', (e) => {
+          // Actualizar selección de color
+          productSelections.mini.color = e.target.dataset.color;
+          
+          // Actualizar estado activo
+          miniColors.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+          e.target.classList.add('active');
+        });
+      });
+    }
   };
 
   // Color swatch functionality
@@ -54,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   initColorSwatches();
   initBuyButtons();
+  initModelSelectors();
+  initPurchaseColorSwatches();
   const translateBtn = document.getElementById("translate-btn");
   let isEnglish = false;
   // Helper safe setters so script can run on pages that don't have all IDs

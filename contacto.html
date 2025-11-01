@@ -31,7 +31,25 @@
   <main class="py-5">
     <div class="container text-center">
       <h1 class="text-warning mb-3">Contacto / Comprar</h1>
-      <p class="fs-5 text-light">Precio lanzamiento: <b>USD 99</b></p>
+      <div class="mb-4">
+        <label for="modelo" class="form-label">Selecciona tu modelo:</label>
+        <select id="modelo" class="form-select mb-2">
+          <option value="mini">SunTrack Mini - USD 59</option>
+          <option value="standard" selected>SunTrack Standard - USD 99</option>
+          <option value="pro">SunTrack Pro - USD 159</option>
+        </select>
+        
+        <!-- Opciones de color para Mini -->
+        <div id="miniColors" class="text-center mt-3" style="display: none;">
+          <label class="form-label">Selecciona el color:</label>
+          <div class="d-flex justify-content-center gap-3 align-items-center">
+            <button class="color-swatch active" data-color="gris" aria-label="Color gris" title="Gris" style="background:#9e9e9e"></button>
+            <button class="color-swatch" data-color="blanco" aria-label="Color blanco" title="Blanco" style="background:#f5f5f5"></button>
+            <button class="color-swatch" data-color="negro" aria-label="Color negro" title="Negro" style="background:#0b0b0b"></button>
+            <button class="color-swatch" data-color="rosa" aria-label="Color rosa" title="Rosa" style="background:#ff9fbf"></button>
+          </div>
+        </div>
+      </div>
       <form id="formCompra" class="mx-auto" style="max-width: 400px;">
         <label for="nombre" class="form-label text-secondary">Nombre</label>
         <input type="text" id="nombre" class="form-control mb-3" placeholder="Tu nombre" required>
